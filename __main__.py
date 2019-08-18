@@ -17,10 +17,15 @@ def get_args():
     # function 使用する関数
     subparsers = parser.add_subparsers()
 
-    # チャンネル情報取得
+    # channel
     get_channel_parser = subparsers.add_parser('channel', help='Get Youtube Channel Data')
     get_channel_parser.add_argument('channel_id', help='Channel Id') # チャンネルID
     get_channel_parser.set_defaults(func=api_request.channel) # 実行する関数設定
+
+    # videos
+    get_channel_parser = subparsers.add_parser('videos', help='Get Youtube Videos Data')
+    get_channel_parser.add_argument('q', help='serch words') # チャンネルID
+    get_channel_parser.set_defaults(func=api_request.videos) # 実行する関数設定
 
     return  parser.parse_args()
 

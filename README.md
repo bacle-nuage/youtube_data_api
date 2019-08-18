@@ -3,7 +3,7 @@
 ## 使い方
 
 ```
-./youtube_data_api/__main__.py --api_key={API KEY} -0 {OUTPUT FILE PATH} 
+./youtube_data_api/__main__.py --api_key={API KEY} -o {OUTPUT FILE PATH} 
 ```
 ### resource
 |resource名|説明|

@@ -13,7 +13,7 @@ def get_base_url():
 
 # HTTPリクエスト
 def request(method:str, query:str, api_key:str):
-    url = get_base_url() + '/' + method + query + '&key=' + api_key
+    url = get_base_url() + '/' + method + '?' + query + '&key=' + api_key
     res = requests.get(url)
     return json.dumps(res.json())
 
@@ -21,6 +21,19 @@ def request(method:str, query:str, api_key:str):
 def channel(args):
     channel_id = args.channel_id
     api_key    = args.api_key
-    res = request('channels', '?part=statistics&id=' + channel_id, api_key)
+    res = request('channels', 'part=statistics&id=' + channel_id, api_key)
     return res
 
+# チャンネルIDで情報取得
+def videos(args):
+    q          = args.q
+    api_key    = args.api_key
+    res = request('youtube.search.list', 'part=statistics&id=' + channel_id, api_key)
+    return res
+
+ https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?
+        part=snippet
+        &order=viewCount
+        &q=skateboarding+dog
+        &type=video
+        &videoDefinition=high
